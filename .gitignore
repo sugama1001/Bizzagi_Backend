@@ -1,4 +1,6 @@
 env/
 env1/
-ML_Bizzagi/
 requirements1.txt
+ML_Bizzagi/app/models/indobert_model/model.safetensors
+ML_Bizzagi/app/models/absa_model.pth
+ML_Bizzagi/app/models/model_ABSA.pth
