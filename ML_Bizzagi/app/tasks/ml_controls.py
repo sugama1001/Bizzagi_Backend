@@ -1,9 +1,12 @@
-from celery import shared_task
+import celery_config
 
-@shared_task(ignore_result=False)
-def queue_process(a: int, b: int) -> int:
-    return a + b
+app.config.update(
+    CELERY_BROKER_URL='redis://localhost:6379/0',
+    CELERY_RESULT_BACKEND='redis://localhost:6379/0'
+)
 
-@shared_task(ignore_result=False)
-def queue_process(a: int, b: int) -> int:
-    return a + b
+@celery.task()
+def process_csv(file_content):
+    df = pd.read_csv(file_content)
+    print(df.head())
+    return df.head().to_dict()
