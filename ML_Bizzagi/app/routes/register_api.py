@@ -1,4 +1,4 @@
-from app.routes.api import blueprint as ml_api
+from app.routes.api import blueprint_ml as ml_api
 
 def register_routes(app):
     """

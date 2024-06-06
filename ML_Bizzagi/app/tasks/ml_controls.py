@@ -1,9 +1,6 @@
 import celery_config
-
-app.config.update(
-    CELERY_BROKER_URL='redis://localhost:637/0',
-    CELERY_RESULT_BACKEND='redis://localhost:637/0'
-)
+import pandas as pd
+import celery
 
 @celery.task()
 def process_csv(file_content):

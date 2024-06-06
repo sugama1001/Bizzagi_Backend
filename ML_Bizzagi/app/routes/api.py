@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 import app.models.ml_predict as ml
 import pandas as pd
+from app.models.ml_predict import predict_reviews
 
 blueprint_ml = Blueprint('ml_api', __name__, url_prefix='/ml')
 
@@ -17,7 +18,9 @@ def ml_predict():
         try:
             # Try Read CSV
             df = pd.read_csv(file)
-            print(df.head())
+            df = df[:50]
+            predict_result = predict_reviews(df, 64)
+            print(predict_result)
             
             response = {
                 'message': 'File received successfully',

@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-import ml_config as cf
+import app.models.ml_config as cf
 
 def predict_reviews(review_data, max_sequence_length):
     cf.model_ABSA.eval()  # Set model to evaluation mode

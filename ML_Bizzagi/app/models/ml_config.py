@@ -3,10 +3,11 @@ import string
 import logging
 import re
 import numpy as np
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer
+import importlib
 
-tokenizer = AutoTokenizer.from_pretrained("tokenizer")
-model_ABSA = torch.load('model_ABSA.pth')
+tokenizer = AutoTokenizer.from_pretrained("C:\\Users\\batur\\Bizzagi\\Bizzagi_Backend\\ML_Bizzagi\\app\models\\tokenizer")
+model_ABSA = torch.load('C:\\Users\\batur\\Bizzagi\\Bizzagi_Backend\\ML_Bizzagi\\app\models\\model_ABSA.pth')
 
 def lowercase(review_text):
   low = review_text.lower()
